@@ -1,2 +1,2 @@
 # Projects-Templates
-Bash sr
+Bash sre
