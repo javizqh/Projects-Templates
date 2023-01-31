@@ -1,0 +1,37 @@
+\documentclass[12pt, a4paper]{report}
+\usepackage{graphicx} %LaTeX package to import graphics
+\usepackage{enumitem}
+\usepackage{geometry}
+\geometry{lmargin=30mm}
+\usepackage[export]{adjustbox}
+\usepackage{titlesec}
+\titleformat{\chapter}{\normalfont\huge}{\thechapter}{20pt}{\huge\bf}
+\graphicspath{{images/}} %configuring the graphicx package
+\title{REPLACE_WITH_NEW_NAME}
+\author{REPLACE_WITH_USER_NAME REPLACE_WITH_USER_SURNAME1 REPLACE_WITH_USER_SURNAME2}
+\date{\today}
+\begin{document}
+	\begin{titlepage}
+		\centering
+		{\includegraphics[width=0.3\textwidth]{logo}\par}
+		\vspace{1cm}
+		{\bfseries\LARGE Universidad Rey Juan Carlos \par}
+		\vspace{1cm}
+		{\scshape\Large E.T.S. Ingeniería de Telecomunicación \par}
+		\vspace{3cm}
+		{\scshape\Huge NOMBRE\_ASIGNATURA \par}
+		\vspace{3cm}
+		{\itshape\Large REPLACE_WITH_NEW_NAME \par}
+		\vfill
+		{\Large Autor: \par}
+		{\Large REPLACE_WITH_USER_NAME REPLACE_WITH_USER_SURNAME1 REPLACE_WITH_USER_SURNAME2 \par}
+		\vfill
+		{\Large \today \par}
+	\end{titlepage}
+
+\newpage
+\renewcommand{\contentsname}{Contenidos}
+\tableofcontents
+\newpage
+
+\end{document}

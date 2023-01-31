@@ -1,0 +1,16 @@
+#!/bin/bash
+
+pwd
+doxygen Doxyfile
+cd doc/latex
+make
+cd ..
+rm refman.pdf
+mv latex/refman.pdf refman.pdf
+rm -r latex
+cd ..
+
+git add doc/refman.pdf
+git add doc/html/
+
+exit 0
