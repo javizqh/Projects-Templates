@@ -1,7 +1,7 @@
 #!/bin/bash
 
-helpFile=$HOME/Code/Scripts/project/project.help
-templatesDir=$HOME/Code/Scripts/project/templates/
+helpFile=$HOME/Code/Scripts/Projects-Templates/project.help
+templatesDir=$HOME/Code/Scripts/Projects-Templates/templates/
 userName='Javier'
 userSurname1='Izquierdo'
 userSurname2='Hernández'
@@ -217,7 +217,6 @@ askProjectName
 gitConfig=0
 askCreateGit
 
-echo $langConfig
 editorConfig=0
 if [ "$langConfig" = 'LATEX' ];then
   openWithTexStudio
