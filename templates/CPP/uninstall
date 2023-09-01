@@ -1,6 +1,6 @@
 #!/bin/bash
 
-$NAME="REPLACE_WITH_NEW_NAME" 
+NAME="REPLACE_WITH_NEW_NAME" 
 
 make clean
 

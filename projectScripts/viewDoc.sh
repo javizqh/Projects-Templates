@@ -15,10 +15,13 @@ function viewHtml(){
   opera doc/html/index.html
 }
 
-if [ -f $PWD/.project ]; then
-  PRLANG=$(cat $PWD/.project)
+if [ -f "$PWD/.project" ]; then
+  PRLANG=$(cat "$PWD/.project")
   case "$PRLANG" in
-    "cpp")
+    "C")
+      viewHtml
+    ;;
+    "CPP")
       viewHtml
     ;;
     *)

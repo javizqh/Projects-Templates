@@ -4,10 +4,10 @@
 #
 
 # define the Cpp compiler to use
-CXX = g++
+CXX = gcc
 
 # define any compile-time flags
-CXXFLAGS	:= -std=c++17 -Wall -Wextra -Wshadow -g
+CXXFLAGS	:= -Wall -Wextra -Wshadow -g
 
 # define library paths in addition to /usr/lib
 #   if I wanted to include libraries not in /usr/lib I'd specify
@@ -21,7 +21,7 @@ SRC		:= src
 INCLUDE	:= include
 
 # define lib directory
-LIB		:= lib
+LIB		:= 
 
 ifeq ($(OS),Windows_NT)
 MAIN	:= main.exe
@@ -48,10 +48,10 @@ INCLUDES	:= $(patsubst %,-I%, $(INCLUDEDIRS:%/=%))
 LIBS		:= $(patsubst %,-L%, $(LIBDIRS:%/=%))
 
 # define the C source files
-SOURCES		:= $(wildcard $(patsubst %,%/*.cpp, $(SOURCEDIRS)))
+SOURCES		:= $(wildcard $(patsubst %,%/*.c, $(SOURCEDIRS)))
 
 # define the C object files 
-OBJECTS		:= $(SOURCES:.cpp=.o)
+OBJECTS		:= $(SOURCES:.c=.o)
 
 #
 # The following part of the makefile is generic; it can be used to 
@@ -66,12 +66,13 @@ all: $(OUTPUT) $(MAIN)
 
 $(MAIN): $(OBJECTS) 
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $(OUTPUTMAIN) $(OBJECTS) $(LFLAGS) $(LIBS)
+	@./indent.sh */*.[ch]
 
 # this is a suffix replacement rule for building .o's from .c's
 # it uses automatic variables $<: the name of the prerequisite of
 # the rule(a .c file) and $@: the name of the target of the rule (a .o file) 
 # (see the gnu make manual section about automatic variables)
-.cpp.o:
+.c.o:
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $<  -o $@
 
 .PHONY: clean

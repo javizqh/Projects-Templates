@@ -6,15 +6,19 @@ usage(){
 }
 
 
-if [ -f $PWD/.project ]; then
-  PRLANG=$(cat $PWD/.project)
+if [ -f "$PWD/.project" ]; then
+  PRLANG=$(cat "$PWD/.project")
   case "$PRLANG" in
-    "cpp")
-      touch src/$1.cpp
+    "C")
+      touch src/$1.c
       touch include/$1.h
     ;;
+    "CPP")
+      touch src/$1.cpp
+      touch include/$1.hpp
+    ;;
     *)
-      echo "doc is not available for the ${PRLANG} project"
+      echo "new is not available for the ${PRLANG} project"
     ;;
   esac
 else

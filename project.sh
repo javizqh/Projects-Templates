@@ -14,23 +14,24 @@ usage(){
 #---------------------------FUNCTIONS-------------------------------
 
 function checkIfAlreadyProject(){
-  PROJDIR=$PWD
+  PROJDIR="$PWD"
 
-  while [ $PWD != $HOME -a $PWD != / ]; do
-    if [ -f $PWD/.project ]; then
-      cd $PROJDIR
+  while [ "$PWD" != $HOME -a "$PWD" != "/" ]; do
+    if [ -f "$PWD"/.project ]; then
+      cd "$PROJDIR"
     	echo -e 'Cannot initialize a project inside another' 1>&2
       exit 1
     fi
     cd ..
   done
   
-  cd $PROJDIR
+  cd "$PROJDIR"
 }
 
 function setTemplate(){
   # Copy language template directory to project
-  cp -r $templatesDir/$1/* $PWD
+  cp -r $templatesDir/$1/* "$PROJDIR"
+  cp -r $templatesDir/$1/.vscode "$PROJDIR"
 
   # Set the installation scripts
   if [ "$1" = 'LATEX' ]; then
@@ -82,6 +83,9 @@ function askLanguage(){
   echo -n "Input project language: "
   read language
   case "${language}" in
+    "c"|"C")
+      langConfig="C"
+    ;;
     "cpp"|"c++")
       langConfig="CPP"
     ;;

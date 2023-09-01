@@ -82,6 +82,7 @@
   // Set the name of the author.  Replaces {author}.
   "doxdocgen.generic.authorName": "Javier Izquierdo Hernandez",
   "workbench.colorCustomizations": {
-    "statusBar.background" : "#881b79"
+    "statusBar.background" : "#881b79",
+    "activityBar.background" : "#881b79"
   }
 }

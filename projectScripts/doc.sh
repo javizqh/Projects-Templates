@@ -18,10 +18,13 @@ function doxygenDoc(){
   #cd ../..
 }
 
-if [ -f $PWD/.project ]; then
-  PRLANG=$(cat $PWD/.project)
+if [ -f "$PWD/.project" ]; then
+  PRLANG=$(cat "$PWD/.project")
   case "$PRLANG" in
-    "cpp")
+    "C")
+      doxygenDoc
+    ;;
+    "CPP")
       doxygenDoc
     ;;
     *)

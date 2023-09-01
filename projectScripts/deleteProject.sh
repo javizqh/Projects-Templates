@@ -7,12 +7,12 @@ usage(){
 
 
 
-if [ -f $PWD/.project ]; then
+if [ -f "$PWD/.project" ]; then
   echo -n "Do you want to delete this project [Type Y/n]: "
   read canDelete
   case "${canDelete}" in
   "Y")
-    rm -r $PWD
+    rm -r "$PWD"
   ;;
   "n")
     exit 0
